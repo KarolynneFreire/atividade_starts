@@ -1,12 +1,11 @@
 Algoritmo "jogodavelha"
 
 Var
-   linha, coluna, cont, coluna, opcao, chance, vez,bis,numrepetido, menu: inteiro
+   linha, coluna, cont, posicao, opcao, chance, vez : inteiro
+   bis, numrepetido, menu, contJogUm, contJogDois: inteiro
    joguinho: vetor [1..3,1..3] de caractere
-   x : caractere
+   jogadorUm,jogadorDois, limpTel, x:  caractere
    vencedor :logico
-   jogadorUm,jogadorDois, a:  caractere
-   contJogUm, contJogDois: inteiro
 
 //------------------Procedimentos-----------------------------
 
@@ -40,7 +39,7 @@ Inicio
 
    para linha de 1 ate 3 faca
       para coluna de 1 ate 3 faca
-         cont <- cont +1
+         cont <- cont + 1
          joguinho[linha, coluna] <- numpcarac(cont)
       fimpara
    fimpara
@@ -51,7 +50,6 @@ procedimento estruturaJogo()
 Inicio
 
    escreval ("####################")
-
    escreval("   JOGO DA VELHA ")
    escreval ("-------------------")
    para linha de 1 ate 3 faca
@@ -79,39 +77,38 @@ Inicio
       escreval("Digite um numero para ", x ,": " )
       leia(opcao)
 
-      se (opcao >0) e (opcao <10) entao
-         se (opcao >0) e (opcao <4) entao
-            coluna <- 1
-            se (joguinho[coluna,opcao] = "X") ou(joguinho[coluna,opcao] = "0") entao
+      se (opcao >= 1) e (opcao <= 9) entao
+         se (opcao >= 1) e (opcao <= 3) entao
+            posicao <- 1
+            se (joguinho[posicao,opcao] = "X") ou(joguinho[posicao,opcao] = "0") entao
                numeroRepetido()
             senao
-               joguinho [coluna,opcao] <- x
+               joguinho [posicao,opcao] <- x
                vezJogador()
             fimse
          senao
             se (opcao >3) e (opcao <7) entao
-               coluna <- 2
-               se (joguinho[coluna,opcao-3] = "X") ou(joguinho[coluna,opcao-3] = "0") entao
+               posicao <- 2
+               se (joguinho[posicao,opcao-3] = "X") ou(joguinho[posicao,opcao-3] = "0") entao
                   numeroRepetido()
                senao
-                  joguinho [coluna,opcao-3] <- x
+                  joguinho [posicao,opcao-3] <- x
                   vezJogador()
 
                fimse
             senao
-               coluna <- 3
-               se (joguinho[coluna,opcao-6] = "X") ou(joguinho[coluna,opcao-6] = "0") entao
+               posicao <- 3
+               se (joguinho[posicao,opcao-6] = "X") ou(joguinho[posicao,opcao-6] = "0") entao
                   numeroRepetido()
                senao
-                  joguinho [coluna,opcao-6] <- x
+                  joguinho [posicao,opcao-6] <- x
                   vezJogador()
-
                fimse
             fimse
          fimse
       senao
          escreval("Opcao invalida" )
-         leia(a)
+         leia(limpTel)
       fimse
       limpatela
       estruturaJogo()
@@ -119,10 +116,10 @@ Inicio
    ate (vencedor = verdadeiro) ou (vez = 9)
    se (vencedor = verdadeiro) entao
       se (x="X") entao
-         escreval (" ", jogadorUm , " venceu!!!")
+         escreval (jogadorUm , " venceu!!!")
          contJogUm <- contJogUm + 1
       senao
-         escreval (" ", jogadorDois , " venceu!!!")
+         escreval (jogadorDois , " venceu!!!")
          contJogDois <- contJogDois + 1
       fimse
    senao
@@ -242,7 +239,11 @@ Inicio
       escreval()
       escreva("Opcao escolhida: ")
       leia(menu)
+
       limpatela
+      se (menu <> 1) e (menu <> 2) entao
+         escreval("Opcao invalida. Escolha uma opcao abaixo:")
+      fimse
       escolha  menu
       caso 1
          cont <- 0
