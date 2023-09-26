@@ -8,7 +8,7 @@ Var
    nome1,nome2, a:  caractere
    contJ1, contJ2: inteiro
 
-   //------------------Procedimentos-----------------------------
+//------------------Procedimentos-----------------------------
 
 procedimento mensagemInicial()
 inicio
@@ -16,8 +16,8 @@ inicio
    escreval("      JOGO DA VELHA ")
    escreval ("############################")
    escreval ()
-   escreval ("O primeiro jogador que digitar o nome será [X],")
-   escreval("já o segundo será [0].")
+   escreval ("O primeiro jogador que digitar o nome, sera: [X],")
+   escreval("ja o segundo, sera: [0].")
    escreval ()
    escreval ()
    escreval (" ### DESEJAMOS BOA SORTE! ### ")
@@ -76,7 +76,7 @@ Inicio
 
    repita
 
-      escreval(" Digite um número para ", x ,": " )
+      escreval("Digite um numero para ", x ,": " )
       leia(opcao)
 
       se (opcao >0) e (opcao <10) entao
@@ -110,7 +110,7 @@ Inicio
             fimse
          fimse
       senao
-         escreval("Opção invalida" )
+         escreval("Opcao invalida" )
          leia(a)
       fimse
       limpatela
@@ -134,14 +134,14 @@ fimprocedimento
 procedimento historico()
 inicio
    se (contJ1 <= 1) entao
-      escreval("O jogador ", nome1," ganhou ", contJ1, " vez!")
+      escreval(nome1," ganhou", contJ1, " vez!")
    senao
-      escreval("O jogador ", nome1," ganhou ", contJ1, " vezes!")
+      escreval(nome1," ganhou", contJ1, " vezes!")
    fimse
    se (contJ2 <= 1) entao
-      escreval("O jogador ", nome2," ganhou ", contJ2, " vez!")
+      escreval(nome2," ganhou", contJ2, " vez!")
    senao
-      escreval("O jogador ", nome2," ganhou ", contJ2, " vezes!")
+      escreval(nome2," ganhou", contJ2, " vezes!")
    fimse
 fimProcedimento
 //-----------------------------------------------------
@@ -163,8 +163,8 @@ fimprocedimento
 //-----------------------------------------------------
 procedimento numeroRepetido()
 inicio
-   escreval("Eita, esse número já foi digitado!")
-   escreva("Aperte enter para continuar e preste mais atenção")
+   escreval("Eita, esse numero ja foi digitado!")
+   escreva("Aperte enter para continuar e preste mais atencao")
    leia(numrepetido)
 fimprocedimento
 //-----------------------------------------------------
@@ -178,9 +178,9 @@ inicio
       escreval("Desejam jogar novamente?")
       escreval()
       escreval("[1] Sim")
-      escreval("[2] Não")
+      escreval("[2] Nao")
       escreval()
-      escreva("Opção escolhida: ")
+      escreva("Opcao escolhida: ")
       leia(bis)
       limpatela
 
@@ -192,12 +192,12 @@ inicio
          jogarJogo()
       caso 2
          escreval("Poxa, ficaremos com saudades...")
-         escreval("Aperte [1] para começar ou [2] para sair")
+         escreval("Aperte [1] para comecar novamente, ou [2] para sair")
       fimescolha
    ate(bis = 2)
 fimprocedimento
 
-//-------------------Funcão----------------------------
+//-------------------Funcao----------------------------
 funcao verificarVencedor() : logico
 var
    venceu : logico
@@ -237,10 +237,10 @@ Inicio
    escreval("Iniciar jogo da velha")
    repita
       escreval ()
-      escreval("[1] Para começar")
+      escreval("[1] Para comecar")
       escreval("[2] Sair")
       escreval()
-      escreva("Opção escolhida: ")
+      escreva("Opcao escolhida: ")
       leia(menu)
       limpatela
       escolha  menu
