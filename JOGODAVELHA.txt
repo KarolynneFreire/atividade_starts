@@ -1,12 +1,12 @@
 Algoritmo "jogodavelha"
 
 Var
-   linha, coluna, cont, l, opcao, chance, vez,bis,numrepetido, menu: inteiro
+   linha, coluna, cont, coluna, opcao, chance, vez,bis,numrepetido, menu: inteiro
    joguinho: vetor [1..3,1..3] de caractere
    x : caractere
    vencedor :logico
-   nome1,nome2, a:  caractere
-   contJ1, contJ2: inteiro
+   jogadorUm,jogadorDois, a:  caractere
+   contJogUm, contJogDois: inteiro
 
 //------------------Procedimentos-----------------------------
 
@@ -23,13 +23,13 @@ inicio
    escreval (" ### DESEJAMOS BOA SORTE! ### ")
    escreval ()
    escreva("Jogador(a) 01, digite seu nome: ")
-   leia(nome1)
+   leia(jogadorUm)
    escreva("Jogador(a) 02, digite seu nome: ")
-   leia(nome2)
+   leia(jogadorDois)
 
    limpatela
 
-   escreval("Bem vindos(as) ", nome1, " e ", nome2)
+   escreval("Bem vindos(as) ", jogadorUm, " e ", jogadorDois)
    escreval("Que comecem os jogos!")
    escreval()
 
@@ -81,29 +81,29 @@ Inicio
 
       se (opcao >0) e (opcao <10) entao
          se (opcao >0) e (opcao <4) entao
-            l <- 1
-            se (joguinho[l,opcao] = "X") ou(joguinho[l,opcao] = "0") entao
+            coluna <- 1
+            se (joguinho[coluna,opcao] = "X") ou(joguinho[coluna,opcao] = "0") entao
                numeroRepetido()
             senao
-               joguinho [l,opcao] <- x
+               joguinho [coluna,opcao] <- x
                vezJogador()
             fimse
          senao
             se (opcao >3) e (opcao <7) entao
-               l <- 2
-               se (joguinho[l,opcao-3] = "X") ou(joguinho[l,opcao-3] = "0") entao
+               coluna <- 2
+               se (joguinho[coluna,opcao-3] = "X") ou(joguinho[coluna,opcao-3] = "0") entao
                   numeroRepetido()
                senao
-                  joguinho [l,opcao-3] <- x
+                  joguinho [coluna,opcao-3] <- x
                   vezJogador()
 
                fimse
             senao
-               l <- 3
-               se (joguinho[l,opcao-6] = "X") ou(joguinho[l,opcao-6] = "0") entao
+               coluna <- 3
+               se (joguinho[coluna,opcao-6] = "X") ou(joguinho[coluna,opcao-6] = "0") entao
                   numeroRepetido()
                senao
-                  joguinho [l,opcao-6] <- x
+                  joguinho [coluna,opcao-6] <- x
                   vezJogador()
 
                fimse
@@ -119,29 +119,29 @@ Inicio
    ate (vencedor = verdadeiro) ou (vez = 9)
    se (vencedor = verdadeiro) entao
       se (x="X") entao
-         escreval (" ", nome1 , " venceu!!!")
-         contJ1 <- contJ1 + 1
+         escreval (" ", jogadorUm , " venceu!!!")
+         contJogUm <- contJogUm + 1
       senao
-         escreval (" ", nome2 , " venceu!!!")
-         contJ2 <- contJ2 + 1
+         escreval (" ", jogadorDois , " venceu!!!")
+         contJogDois <- contJogDois + 1
       fimse
    senao
-      escreval ("XIII!",nome1, " e ", nome2," DEU VELHAAAA...")
+      escreval ("XIII!",jogadorUm, " e ", jogadorDois," DEU VELHAAAA...")
    fimse
    jogarNovamente()
 fimprocedimento
 //-----------------------------------------------------
 procedimento historico()
 inicio
-   se (contJ1 <= 1) entao
-      escreval(nome1," ganhou", contJ1, " vez!")
+   se (contJogUm <= 1) entao
+      escreval(jogadorUm," ganhou", contJogUm, " vez!")
    senao
-      escreval(nome1," ganhou", contJ1, " vezes!")
+      escreval(jogadorUm," ganhou", contJogUm, " vezes!")
    fimse
-   se (contJ2 <= 1) entao
-      escreval(nome2," ganhou", contJ2, " vez!")
+   se (contJogDois <= 1) entao
+      escreval(jogadorDois," ganhou", contJogDois, " vez!")
    senao
-      escreval(nome2," ganhou", contJ2, " vezes!")
+      escreval(jogadorDois," ganhou", contJogDois, " vezes!")
    fimse
 fimProcedimento
 //-----------------------------------------------------
@@ -231,8 +231,8 @@ fimfuncao
 //-----------------------------------------------------
 Inicio
    cont <- 0
-   contJ1 <- 0
-   contJ2 <- 0
+   contJogUm <- 0
+   contJogDois <- 0
 
    escreval("Iniciar jogo da velha")
    repita
