@@ -197,7 +197,6 @@ inicio
    ate(bis = 2)
 fimprocedimento
 
-//-----------------------------------------------------
 //-------------------Funcão----------------------------
 funcao verificarVencedor() : logico
 var
