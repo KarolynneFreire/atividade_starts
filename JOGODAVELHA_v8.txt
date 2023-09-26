@@ -5,7 +5,8 @@ Var
    joguinho: vetor [1..3,1..3] de caractere
    x : caractere
    vencedor :logico
-   jogador1,jogador2, a:  caractere
+   nome1,nome2, a:  caractere
+   contJ1, contJ2: inteiro
 
    //------------------Procedimentos-----------------------------
 
@@ -117,18 +118,32 @@ Inicio
 
    ate (vencedor = verdadeiro) ou (vez = 9)
    se (vencedor = verdadeiro) entao
-      Se X="X" entao
-         escreva( jogador1 , " venceu!!!")
+      se (x="X") entao
+         escreval (" ", nome1 , " venceu!!!")
+         contJ1 <- contJ1 + 1
       senao
-         escreva(jogador2 , " venceu!!!")
+         escreval (" ", nome2 , " venceu!!!")
+         contJ2 <- contJ2 + 1
       fimse
    senao
-      escreval ("XIII!",jogador1, " e ", jogador2," DEU VELHAAAA...")
+      escreval ("XIII!",nome1, " e ", nome2," DEU VELHAAAA...")
    fimse
-
    jogarNovamente()
-
 fimprocedimento
+//-----------------------------------------------------
+procedimento historico()
+inicio
+   se (contJ1 <= 1) entao
+      escreval("O jogador ", nome1," ganhou ", contJ1, " vez!")
+   senao
+      escreval("O jogador ", nome1," ganhou ", contJ1, " vezes!")
+   fimse
+   se (contJ2 <= 1) entao
+      escreval("O jogador ", nome2," ganhou ", contJ2, " vez!")
+   senao
+      escreval("O jogador ", nome2," ganhou ", contJ2, " vezes!")
+   fimse
+fimProcedimento
 //-----------------------------------------------------
 procedimento vezJogador()
 Inicio
@@ -152,15 +167,16 @@ inicio
    escreva("Aperte enter para continuar e preste mais atenção")
    leia(numrepetido)
 fimprocedimento
-
 //-----------------------------------------------------
+
 procedimento jogarNovamente()
 inicio
    repita
       escreval()
+      historico()
+      escreval()
       escreval("Desejam jogar novamente?")
       escreval()
-
       escreval("[1] Sim")
       escreval("[2] Não")
       escreval()
@@ -175,26 +191,13 @@ inicio
          estruturaJogo()
          jogarJogo()
       caso 2
-         escreval("Jogo encerrado")
+         escreval("Poxa, ficaremos com saudades...")
+         escreval("Aperte [1] para começar ou [2] para sair")
       fimescolha
    ate(bis = 2)
 fimprocedimento
 
 //-----------------------------------------------------
-procedimento historico()
-inicio
-   se (contP1 = 1) entao
-      escreval("O jogador(a) ", jogador1," ganhou ", contP1, " vez!")
-   senao
-      escreval("O jogador(a) ", jogador1," ganhou ", contP1, " vezes!")
-   fimse
-   se (contp2 = 1) entao
-      escreval("O jogador(a) ", jogador2," ganhou ", contP2, " vez!")
-   senao
-      escreval("O jogador(a) ", jogador2," ganhou ", contP2, " vezes!")
-   fimse
-fimProcedimento
-
 //-------------------Funcão----------------------------
 funcao verificarVencedor() : logico
 var
@@ -229,13 +232,29 @@ fimfuncao
 //-----------------------------------------------------
 Inicio
    cont <- 0
+   contJ1 <- 0
+   contJ2 <- 0
 
+   escreval("Iniciar jogo da velha")
+   repita
+      escreval ()
+      escreval("[1] Para começar")
+      escreval("[2] Sair")
+      escreval()
+      escreva("Opção escolhida: ")
+      leia(menu)
+      limpatela
+      escolha  menu
+      caso 1
+         cont <- 0
+         mensagemInicial()
+         preencherJogo()
+         estruturaJogo()
+         jogarJogo()
+      caso 2
+         escreval("Fim de jogo...")
 
-   mensagemInicial()
-   preencherJogo()
-   estruturaJogo()
-   jogarJogo()
-
-
+      fimescolha
+   ate (menu = 2)
 
 Fimalgoritmo
