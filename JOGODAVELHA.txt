@@ -1,5 +1,11 @@
 Algoritmo "jogodavelha"
 
+//Alunos : Jonatha Fabricio Mendonça de Albuquerque,
+//Karolynne Susan Freire da Cunha, Lais Serafim do Nascimento,
+//Letícia Vitória Siqueira da Silva, Maria Júlia Alves da Rocha
+// e Rogério Felipe Lima de Lucena Junior
+
+
 Var
    linha, coluna, cont, linhaAux, opcao, chance, vez : inteiro
    bis, numrepetido, menu, contJogUm, contJogDois: inteiro
@@ -7,7 +13,7 @@ Var
    jogadorUm, jogadorDois, recbCaract, x:  caractere
    vencedor :logico
 
-//------------------Procedimentos-----------------------------
+   //------------------Procedimentos-----------------------------
 
 procedimento mensagemInicial()
 inicio
@@ -106,7 +112,7 @@ Inicio
             fimse
          fimse
       senao
-         escreval("Opcao invalida" )
+         escreval("Opss! opcao invalida, aperte enter e digite novamente " )
          leia(recbCaract)
       fimse
       limpatela
@@ -122,7 +128,7 @@ Inicio
          contJogDois <- contJogDois + 1
       fimse
    senao
-      escreval ("XIII!",jogadorUm, " e ", jogadorDois," DEU VELHAAAA...")
+      escreval ("XIII! ",jogadorUm, " e ", jogadorDois," DEU VELHAAAA...")
    fimse
    jogarNovamente()
 fimprocedimento
@@ -178,7 +184,7 @@ inicio
       escreval()
       escreva("Opcao escolhida: ")
       leia(bis)
-      
+
       limpatela
 
       escolha bis
@@ -234,14 +240,14 @@ Inicio
    escreval("Iniciar jogo da velha")
    repita
       escreval ()
-      escreval("[1] Para comecar")
+      escreval("[1] Para comecar jogo")
       escreval("[2] Sair")
       escreval()
       escreva("Opcao escolhida: ")
       leia(menu)
 
       limpatela
-      
+
       se (menu <> 1) e (menu <> 2) entao
          escreval("Opcao invalida. Escolha uma opcao abaixo:")
       fimse
