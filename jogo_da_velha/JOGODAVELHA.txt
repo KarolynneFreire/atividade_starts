@@ -19,7 +19,7 @@ procedimento mensagemInicial()
 inicio
    escreval ("###########################")
    escreval("      JOGO DA VELHA ")
-   escreval ("############################")
+   escreval ("###########################")
    escreval ()
    escreval ("O primeiro jogador que digitar o nome, sera: [X],")
    escreval("ja o segundo, sera: [0].")
@@ -135,12 +135,12 @@ fimprocedimento
 //-----------------------------------------------------
 procedimento historico()
 inicio
-   se (contJogUm <= 1) entao
+   se (contJogUm = 1) entao
       escreval(jogadorUm," ganhou", contJogUm, " vez!")
    senao
       escreval(jogadorUm," ganhou", contJogUm, " vezes!")
    fimse
-   se (contJogDois <= 1) entao
+   se (contJogDois = 1) entao
       escreval(jogadorDois," ganhou", contJogDois, " vez!")
    senao
       escreval(jogadorDois," ganhou", contJogDois, " vezes!")
@@ -179,8 +179,8 @@ inicio
       escreval()
       escreval("Desejam jogar novamente?")
       escreval()
-      escreval("[1] Sim")
-      escreval("[2] Nao")
+      escreval("[1] Sim! ")
+      escreval("[2] Nao! Caso voce saia, o placar voltara a zero")
       escreval()
       escreva("Opcao escolhida: ")
       leia(bis)
